@@ -1,11 +1,11 @@
 {
-  "version": "0.0.1",
-  "notes": "Initial release of ArcherLLM skeleton workspace.",
-  "pub_date": "2026-07-14T14:41:54.892Z",
+  "version": "0.0.2",
+  "notes": "Release version 2 with custom logo image in sidebar!",
+  "pub_date": "2026-07-14T14:50:07.657Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSVHlkM1lmdkcwSmdQRnROWksyUlV4S0wzSHhkc1hsQ0ZpNURwWkN1WEVpakJRUzVSc2dYeDF6SFVla3JUMWFweXcyOFJLcUhhUFZRVkJsYTJGRlI4a1I2MmFVOUFUMlFZPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg0MDQwMTE0CWZpbGU6QXJjaGVyTExNXzAuMC4xX3g2NC1zZXR1cC5leGUKSzFwZEF1ZUtaL3NrTFZzbC9ZTjk3c3gwOEZySW5mZ3ozUTBOS21jOXB1eGQ2Y3o3WGVDMnFGbDVWQzN0OGRUV0orVnNOMDFNMEljOFZILzdkR2FOQVE9PQo=",
-      "url": "https://archerllm.pages.dev/releases/ArcherLLM_0.0.1_x64-setup.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSVHlkM1lmdkcwSm5iRFVmYWJ5dXVvQ1I2MjlpelpBNFBoRWwzeittb2pXRVhaVHF6R3RiVFU2QVNBNzBXYzZwa1FrMFJLeTduSFlsbHhudzA2c084M3FBUEtpdWc3RWdNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg0MDQwNjA3CWZpbGU6QXJjaGVyTExNXzAuMC4yX3g2NC1zZXR1cC5leGUKcW0reTFURXpWMElxQUZjNHVsNGtVTXAvcEpsL3lRcnZzQWVzd3RraEluamlQVnNCOXJBSUxDZTh3MTVjSFdycDJ5OGFqWWxjMUpDaXRqa2trZHdFQUE9PQo=",
+      "url": "https://archerllm.pages.dev/releases/ArcherLLM_0.0.2_x64-setup.exe"
     }
   }
 }
