@@ -1,5 +1,10 @@
 [
   {
+    "version": "0.0.3",
+    "date": "2026-07-14T15:36:10.739Z",
+    "notes": "Release version 3 with clean white theme interface!"
+  },
+  {
     "version": "0.0.2",
     "date": "2026-07-14T15:16:40.873Z",
     "notes": "Release version 2 with clean mount status and custom logo!"

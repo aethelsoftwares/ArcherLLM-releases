@@ -1,11 +1,11 @@
 {
-  "version": "0.0.2",
-  "notes": "Release version 2 with clean mount status and custom logo!",
-  "pub_date": "2026-07-14T15:16:40.871Z",
+  "version": "0.0.3",
+  "notes": "Release version 3 with clean white theme interface!",
+  "pub_date": "2026-07-14T15:36:10.736Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSVHlkM1lmdkcwSm95SkNYaVlJUU5tczFwY1VlaTRkZXNBbUdXa3NXbGZpbll1cnFuMEJ2RFYwY2hMd3lQQkpLbTJWc1JkZGNQNjFNUWJ2ZEhpRzdJUDFmVTVIR0l6UndvPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg0MDQyMjAwCWZpbGU6QXJjaGVyTExNXzAuMC4yX3g2NC1zZXR1cC5leGUKdjlzTU9kM29PWE9qaXp5bm5IK1FxejJkRnpSN09zRm9EZ1ExWVVPSTJLdU5sY1h6MTlhUFQ3eG00TCswR2wrUHJIUWk5eDhCL0FxaUNhbnVXb1pWQ2c9PQo=",
-      "url": "https://archerllm.pages.dev/releases/ArcherLLM_0.0.2_x64-setup.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSVHlkM1lmdkcwSnNib3l6eHRTL0Y2akVwaWJNeG9mUnFtNVc4TzlXSzhiWGdSVTNxVFF4bXUyMndwYXd2NVZTUnJjTkI3YStlZ2p5eGZNVFhQckNacUVHTXU3SnUvM1E0PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg0MDQzMzcwCWZpbGU6QXJjaGVyTExNXzAuMC4zX3g2NC1zZXR1cC5leGUKV240YzNHNU5DZUExMXdiUWMxVHpxclRKTlRrOExjSjJGQkdyWFBaVEUyRU5hakZHb1lXMzQyNENhaHVDc09jTllaK290TS9qU1EveE5ZMjBRbTVjQ3c9PQo=",
+      "url": "https://archerllm.pages.dev/releases/ArcherLLM_0.0.3_x64-setup.exe"
     }
   }
 }
