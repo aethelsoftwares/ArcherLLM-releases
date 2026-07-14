@@ -1,10 +1,10 @@
 {
   "version": "0.0.2",
-  "notes": "Release version 2 with custom logo image in sidebar!",
-  "pub_date": "2026-07-14T14:50:07.657Z",
+  "notes": "Release version 2 enabling Get button download and install",
+  "pub_date": "2026-07-14T15:03:39.029Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSVHlkM1lmdkcwSm5iRFVmYWJ5dXVvQ1I2MjlpelpBNFBoRWwzeittb2pXRVhaVHF6R3RiVFU2QVNBNzBXYzZwa1FrMFJLeTduSFlsbHhudzA2c084M3FBUEtpdWc3RWdNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg0MDQwNjA3CWZpbGU6QXJjaGVyTExNXzAuMC4yX3g2NC1zZXR1cC5leGUKcW0reTFURXpWMElxQUZjNHVsNGtVTXAvcEpsL3lRcnZzQWVzd3RraEluamlQVnNCOXJBSUxDZTh3MTVjSFdycDJ5OGFqWWxjMUpDaXRqa2trZHdFQUE9PQo=",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSVHlkM1lmdkcwSm5idFpiS0dhTEpicyt6aUhXU1V4M0Y3cXNBMytqWmRSOXhXemF5bzNsUVZSdDA5TnNFQ3EyL1laUlcrSlY5Ni9hUVJQUDZBMmx5VG5BSjNYc2ZiUUFvPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg0MDQxNDE4CWZpbGU6QXJjaGVyTExNXzAuMC4yX3g2NC1zZXR1cC5leGUKeDIzTDVlQ200SEtNdHlOMDMwZzllbm5sbFNWWFVMQjN4amRTMVluSTJ4OEFWQzFMa3JWR3FuWEl5QnI3SlB2Tlk2c0NubURuR0V4U0owZ1VocXdTQ0E9PQo=",
       "url": "https://archerllm.pages.dev/releases/ArcherLLM_0.0.2_x64-setup.exe"
     }
   }
