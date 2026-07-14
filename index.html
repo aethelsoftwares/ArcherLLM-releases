@@ -10,14 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-bg-base:      #0d0f14;   /* Near-black background */
-            --color-bg-surface:   #13161e;   /* Dark surface */
-            --color-border:       #252836;   /* Subtle divider */
-            --color-accent:       #6c63ff;   /* Neon purple/blue accent */
+            --color-bg:           #0d0f14;
+            --color-surface:      #13161e;
+            --color-border:       #252836;
+            --color-accent:       #6c63ff;
             --color-accent-hover: #5b52e5;
-            --color-text-primary: #e8eaf0;   /* Primary text */
-            --color-text-muted:   #7a7f96;   /* Secondary text */
-            --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            --color-text:         #e8eaf0;
+            --color-text-muted:   #7a7f96;
+            --font-sans: "Inter", sans-serif;
         }
 
         * {
@@ -27,89 +27,43 @@
         }
 
         body {
-            background-color: var(--color-bg-base);
-            color: var(--color-text-primary);
+            background-color: var(--color-bg);
+            color: var(--color-text);
             font-family: var(--font-sans);
             display: flex;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            overflow: hidden;
-            position: relative;
+            padding: 2rem 1rem;
         }
 
-        /* Ambient Glow Backgrounds */
-        .glow {
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(108, 99, 255, 0.15) 0%, rgba(13, 15, 20, 0) 70%);
-            border-radius: 50%;
-            z-index: 1;
-            pointer-events: none;
-        }
-        .glow-top-left {
-            top: -10%;
-            left: -10%;
-        }
-        .glow-bottom-right {
-            bottom: -10%;
-            right: -10%;
-        }
-
-        /* Glassmorphism Card Container */
-        .hero-card {
-            background: rgba(19, 22, 30, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--color-border);
-            padding: 3rem 2.5rem;
-            border-radius: 16px;
+        .container {
+            max-width: 600px;
+            width: 100%;
             text-align: center;
-            max-width: 500px;
-            width: 90%;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            z-index: 2;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-        
-        .hero-card:hover {
-            border-color: rgba(108, 99, 255, 0.3);
-            transform: translateY(-2px);
         }
 
-        .logo-mark {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-            color: var(--color-text-primary);
-            text-shadow: 0 0 12px rgba(108, 99, 255, 0.4);
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 1rem;
         }
 
         h1 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
             letter-spacing: -0.5px;
-            background: linear-gradient(135deg, #ffffff 40%, #c5c2ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
-        p.subtitle {
-            color: var(--color-text-muted);
-            font-size: 1.05rem;
+        p.description {
+            font-size: 1.1rem;
             line-height: 1.6;
-            margin-bottom: 2rem;
+            color: var(--color-text-muted);
+            margin-bottom: 2.5rem;
         }
 
-        /* Primary Button Style */
         .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+            display: inline-block;
             background-color: var(--color-accent);
             color: #ffffff;
             text-decoration: none;
@@ -117,99 +71,24 @@
             border-radius: 8px;
             font-weight: 600;
             font-size: 1rem;
-            letter-spacing: 0.2px;
-            transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+            transition: background-color 0.2s ease;
+            box-shadow: 0 4px 12px rgba(108, 99, 255, 0.25);
         }
 
         .btn:hover {
             background-color: var(--color-accent-hover);
-            box-shadow: 0 6px 20px rgba(108, 99, 255, 0.4);
-        }
-        
-        .btn:active {
-            transform: scale(0.98);
-        }
-
-        /* Version Badge */
-        .version-badge {
-            display: block;
-            margin-top: 1rem;
-            font-size: 0.8rem;
-            color: var(--color-text-muted);
-            font-weight: 500;
-            letter-spacing: 0.5px;
-        }
-
-        /* Footer Link */
-        .footer-nav {
-            margin-top: 2.5rem;
-            border-top: 1px solid var(--color-border);
-            padding-top: 1.2rem;
-        }
-
-        .footer-nav a {
-            color: var(--color-text-muted);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-
-        .footer-nav a:hover {
-            color: var(--color-accent);
         }
     </style>
 </head>
 <body>
-    <!-- Background Glow Effects -->
-    <div class="glow glow-top-left"></div>
-    <div class="glow glow-bottom-right"></div>
-
-    <!-- Main Card -->
-    <div class="hero-card">
-        <div class="logo-mark">⚡</div>
+    <div class="container">
+        <div class="logo">⚡</div>
         <h1>ArcherLLM</h1>
-        <p class="subtitle">A secure, high-performance, and stealthy desktop AI chat client. Optimized for local workloads and clean workflows.</p>
-        
-        <a href="#" id="download-btn" class="btn">Download for Windows</a>
-        <span id="version-tag" class="version-badge">checking latest version...</span>
-
-        <div class="footer-nav">
-            <a href="/releases" id="release-notes-link">View Release Notes</a>
-        </div>
+        <p class="description">
+            ArcherLLM is a secure, high-performance desktop chat interface built for local AI workflows. 
+            Enjoy absolute privacy, customization, and a sleek desktop experience with zero cloud dependencies.
+        </p>
+        <a href="/releases" class="btn">See Latest Releases</a>
     </div>
-
-    <!-- Script to dynamically load latest release -->
-    <script>
-      const downloadBtn = document.getElementById('download-btn');
-      const versionTag = document.getElementById('version-tag');
-
-      fetch('/releases/latest.json')
-        .then(res => {
-          if (!res.ok) throw new Error('Not found');
-          return res.json();
-        })
-        .then(data => {
-          if (data && data.platforms && data.platforms['windows-x86_64']) {
-            const downloadUrl = data.platforms['windows-x86_64'].url;
-            downloadBtn.href = downloadUrl;
-            versionTag.innerText = `Latest Release: v${data.version}`;
-          } else {
-            fallback();
-          }
-        })
-        .catch(err => {
-          console.warn("Could not fetch latest release info, using fallback.", err);
-          fallback();
-        });
-
-      function fallback() {
-        // Fallback pointing directly to a generic/initial download layout
-        downloadBtn.href = '/releases/ArcherLLM_0.0.1_x64-setup.exe';
-        versionTag.innerText = 'Stable Release: v0.0.1';
-      }
-    </script>
 </body>
 </html>

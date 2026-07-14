@@ -10,13 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-bg-base:      #0d0f14;   /* Near-black background */
-            --color-bg-surface:   #13161e;   /* Dark surface */
-            --color-border:       #252836;   /* Subtle divider */
-            --color-accent:       #6c63ff;   /* Neon purple/blue accent */
-            --color-text-primary: #e8eaf0;   /* Primary text */
-            --color-text-muted:   #7a7f96;   /* Secondary text */
-            --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            --color-bg:           #0d0f14;
+            --color-surface:      #13161e;
+            --color-border:       #252836;
+            --color-accent:       #6c63ff;
+            --color-accent-hover: #5b52e5;
+            --color-text:         #e8eaf0;
+            --color-text-muted:   #7a7f96;
+            --font-sans: "Inter", sans-serif;
         }
 
         * {
@@ -26,120 +27,183 @@
         }
 
         body {
-            background-color: var(--color-bg-base);
-            color: var(--color-text-primary);
+            background-color: var(--color-bg);
+            color: var(--color-text);
             font-family: var(--font-sans);
+            padding: 4rem 1rem;
             display: flex;
-            align-items: center;
             justify-content: center;
-            min-height: 100vh;
-            padding: 2rem 1rem;
         }
 
-        .card {
-            background: rgba(19, 22, 30, 0.85);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--color-border);
-            padding: 2.5rem;
-            border-radius: 12px;
-            max-width: 600px;
+        .container {
+            max-width: 650px;
             width: 100%;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
-        h1 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
+        .header {
+            margin-bottom: 2rem;
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: space-between;
         }
 
-        .back-btn {
+        .back-link {
             color: var(--color-text-muted);
             text-decoration: none;
             font-size: 0.9rem;
             transition: color 0.2s ease;
-            display: inline-block;
-            margin-bottom: 1rem;
         }
 
-        .back-btn:hover {
+        .back-link:hover {
             color: var(--color-accent);
         }
 
-        .release-box {
-            border-top: 1px solid var(--color-border);
-            padding-top: 1.5rem;
-            margin-top: 1rem;
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
-        .release-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 0.5rem;
+        /* Release card component */
+        .release-card {
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: border-color 0.2s ease;
+            position: relative;
         }
 
-        .release-version {
-            font-size: 1.25rem;
+        .release-card.latest {
+            border-color: rgba(108, 99, 255, 0.4);
+        }
+
+        .latest-badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            background-color: var(--color-accent);
+            color: #ffffff;
+            font-size: 0.75rem;
             font-weight: 600;
-            color: var(--color-accent);
+            padding: 0.25rem 0.6rem;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
         }
 
-        .release-date {
+        .version {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+
+        .date {
             font-size: 0.85rem;
             color: var(--color-text-muted);
+            margin-bottom: 1.2rem;
         }
 
-        .changelog {
+        .notes {
             font-size: 0.95rem;
-            color: var(--color-text-primary);
             line-height: 1.6;
-            white-space: pre-line;
-            background: rgba(255, 255, 255, 0.02);
-            padding: 1rem;
+            color: var(--color-text);
+            margin-bottom: 1.5rem;
+            white-space: pre-wrap;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: transparent;
+            color: var(--color-text);
+            border: 1px solid var(--color-border);
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
             border-radius: 6px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .download-btn:hover {
+            border-color: var(--color-accent);
+            background-color: rgba(108, 99, 255, 0.05);
+        }
+
+        #loading {
+            text-align: center;
+            color: var(--color-text-muted);
+            padding: 2rem;
         }
     </style>
 </head>
 <body>
-    <div class="card">
-        <a href="/" class="back-btn">← Back to Home</a>
-        <h1>⚡ Release Changelog</h1>
-        
-        <div id="release-info" class="release-box">
-            <div class="release-header">
-                <span id="version-title" class="release-version">v0.0.0</span>
-                <span id="release-date" class="release-date">Released: --/--/----</span>
-            </div>
-            <div id="changelog-content" class="changelog">Loading release information...</div>
+    <div class="container">
+        <div class="header">
+            <h1>All Releases</h1>
+            <a href="/" class="back-link">← Back to Home</a>
         </div>
+
+        <div id="loading">Loading releases list...</div>
+        <div id="releases-list"></div>
     </div>
 
     <script>
-      fetch('/releases/latest.json')
-        .then(res => {
-          if (!res.ok) throw new Error('Not found');
-          return res.json();
-        })
-        .then(data => {
-          document.getElementById('version-title').innerText = `Version v${data.version}`;
-          document.getElementById('changelog-content').innerText = data.notes || "No release notes available.";
-          
-          if (data.pub_date) {
-            const dateObj = new Date(data.pub_date);
-            document.getElementById('release-date').innerText = `Released: ${dateObj.toLocaleDateString()}`;
-          }
-        })
-        .catch(err => {
-          console.error(err);
-          document.getElementById('version-title').innerText = "v0.0.1";
-          document.getElementById('changelog-content').innerText = "Initial Milestone 0.0.1 Release.\n- Skeleton architecture layout setup\n- Windows auto-update validation logic wired.";
-          document.getElementById('release-date').innerText = "Released: July 14, 2026";
-        });
+        const releasesList = document.getElementById('releases-list');
+        const loading = document.getElementById('loading');
+
+        fetch('/releases/history.json')
+            .then(res => {
+                if (!res.ok) throw new Error('Could not load history');
+                return res.json();
+            })
+            .then(data => {
+                loading.style.display = 'none';
+                if (!data || data.length === 0) {
+                    releasesList.innerHTML = '<div style="text-align: center; color: var(--color-text-muted);">No releases found.</div>';
+                    return;
+                }
+
+                data.forEach((release, index) => {
+                    const card = document.createElement('div');
+                    card.className = `release-card ${index === 0 ? 'latest' : ''}`;
+
+                    const dateStr = new Date(release.date).toLocaleDateString(undefined, {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    });
+
+                    let badgeHTML = '';
+                    if (index === 0) {
+                        badgeHTML = '<span class="latest-badge">LATEST</span>';
+                    }
+
+                    // Build URLs directly based on the structured file name pattern
+                    const exeUrl = `/releases/ArcherLLM_${release.version}_x64-setup.exe`;
+                    const msiUrl = `/releases/ArcherLLM_${release.version}_x64_en-US.msi`;
+
+                    card.innerHTML = `
+                        ${badgeHTML}
+                        <div class="version">v${release.version}</div>
+                        <div class="date">Released on ${dateStr}</div>
+                        <div class="notes">${release.notes}</div>
+                        <div class="actions">
+                            <a href="${exeUrl}" class="download-btn">Download Windows (EXE)</a>
+                            <a href="${msiUrl}" class="download-btn">Download Windows (MSI)</a>
+                        </div>
+                    `;
+                    releasesList.appendChild(card);
+                });
+            })
+            .catch(err => {
+                console.error(err);
+                loading.innerHTML = '<div style="color: red; text-align: center;">Error loading releases.</div>';
+            });
     </script>
 </body>
 </html>

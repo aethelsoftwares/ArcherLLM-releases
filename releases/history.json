@@ -1,0 +1,7 @@
+[
+  {
+    "version": "0.0.1",
+    "date": "2026-07-14T08:52:32.247Z",
+    "notes": "Initial release. Set up React skeleton sidebar, Tauri backend integration, and custom Cloudflare Pages update endpoint pipeline."
+  }
+]
