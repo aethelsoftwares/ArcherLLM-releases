@@ -3,52 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ArcherLLM</title>
+    <title>ArcherLLM — Secure Desktop AI Client</title>
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --color-bg-base:      #0d0f14;   /* Near-black background */
+            --color-bg-surface:   #13161e;   /* Dark surface */
+            --color-border:       #252836;   /* Subtle divider */
+            --color-accent:       #6c63ff;   /* Neon purple/blue accent */
+            --color-accent-hover: #5b52e5;
+            --color-text-primary: #e8eaf0;   /* Primary text */
+            --color-text-muted:   #7a7f96;   /* Secondary text */
+            --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            background-color: #0d0f14;
-            color: #e8eaf0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--color-bg-base);
+            color: var(--color-text-primary);
+            font-family: var(--font-sans);
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
-            margin: 0;
-            user-select: none;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
         }
-        .container {
+
+        /* Ambient Glow Backgrounds */
+        .glow {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(108, 99, 255, 0.15) 0%, rgba(13, 15, 20, 0) 70%);
+            border-radius: 50%;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .glow-top-left {
+            top: -10%;
+            left: -10%;
+        }
+        .glow-bottom-right {
+            bottom: -10%;
+            right: -10%;
+        }
+
+        /* Glassmorphism Card Container */
+        .hero-card {
+            background: rgba(19, 22, 30, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--color-border);
+            padding: 3rem 2.5rem;
+            border-radius: 16px;
             text-align: center;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            z-index: 2;
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
+        
+        .hero-card:hover {
+            border-color: rgba(108, 99, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .logo-mark {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-text-primary);
+            text-shadow: 0 0 12px rgba(108, 99, 255, 0.4);
+        }
+
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
             letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #ffffff 40%, #c5c2ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        p {
-            color: #7a7f96;
-            font-size: 1.1rem;
+
+        p.subtitle {
+            color: var(--color-text-muted);
+            font-size: 1.05rem;
+            line-height: 1.6;
             margin-bottom: 2rem;
         }
+
+        /* Primary Button Style */
         .btn {
-            background-color: #6c63ff;
-            color: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--color-accent);
+            color: #ffffff;
             text-decoration: none;
-            padding: 0.8rem 2rem;
+            padding: 0.9rem 2.2rem;
             border-radius: 8px;
-            font-weight: 500;
-            transition: background 0.2s ease;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.2px;
+            transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
         }
+
         .btn:hover {
-            background-color: #5b52e5;
+            background-color: var(--color-accent-hover);
+            box-shadow: 0 6px 20px rgba(108, 99, 255, 0.4);
+        }
+        
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Version Badge */
+        .version-badge {
+            display: block;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Footer Link */
+        .footer-nav {
+            margin-top: 2.5rem;
+            border-top: 1px solid var(--color-border);
+            padding-top: 1.2rem;
+        }
+
+        .footer-nav a {
+            color: var(--color-text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .footer-nav a:hover {
+            color: var(--color-accent);
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- Background Glow Effects -->
+    <div class="glow glow-top-left"></div>
+    <div class="glow glow-bottom-right"></div>
+
+    <!-- Main Card -->
+    <div class="hero-card">
+        <div class="logo-mark">⚡</div>
         <h1>ArcherLLM</h1>
-        <p>A secure, desktop-first AI client.</p>
-        <a href="#" class="btn">Download for Windows</a>
+        <p class="subtitle">A secure, high-performance, and stealthy desktop AI chat client. Optimized for local workloads and clean workflows.</p>
+        
+        <a href="#" id="download-btn" class="btn">Download for Windows</a>
+        <span id="version-tag" class="version-badge">checking latest version...</span>
+
+        <div class="footer-nav">
+            <a href="/releases" id="release-notes-link">View Release Notes</a>
+        </div>
     </div>
+
+    <!-- Script to dynamically load latest release -->
+    <script>
+      const downloadBtn = document.getElementById('download-btn');
+      const versionTag = document.getElementById('version-tag');
+
+      fetch('/releases/latest.json')
+        .then(res => {
+          if (!res.ok) throw new Error('Not found');
+          return res.json();
+        })
+        .then(data => {
+          if (data && data.platforms && data.platforms['windows-x86_64']) {
+            const downloadUrl = data.platforms['windows-x86_64'].url;
+            downloadBtn.href = downloadUrl;
+            versionTag.innerText = `Latest Release: v${data.version}`;
+          } else {
+            fallback();
+          }
+        })
+        .catch(err => {
+          console.warn("Could not fetch latest release info, using fallback.", err);
+          fallback();
+        });
+
+      function fallback() {
+        // Fallback pointing directly to a generic/initial download layout
+        downloadBtn.href = '/releases/ArcherLLM_0.0.1_x64-setup.exe';
+        versionTag.innerText = 'Stable Release: v0.0.1';
+      }
+    </script>
 </body>
 </html>
